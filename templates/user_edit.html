@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Document</title>
+        <link rel ="stylesheet" href = "/static/style.css" type = "text/css">
+    </head>
+<body>
+        <h1> Edit User </h1>
+
+        <a href="http://localhost:5000">List User</a>
+        <a href="http://localhost:5000/users">Create User</a>
+
+          <hr />
+
+        <form action="http://localhost:5000/users/{{user['user_id']}}"
+              method="POST">
+
+          <p>
+            <label>
+              First Name
+              <input name="first_name"
+                     placeholder="First Name"
+                     type="text"
+                     value="{{user['first_name']}}"
+                     autofocus />
+            </label>
+          </p>
+
+          <p>
+            <label>
+              Middle Name
+              <input name="middle_name"
+                     placeholder="Middle Name"
+                     type="text"
+                     value="{{user['middle_name']}}"
+                     />
+            </label>
+          </p>
+
+
+
+          <p>
+            <label>
+              Last Name
+              <input name="last_name"
+                     placeholder="Last Name"
+                     type="text"
+                     value="{{user['last_name']}}"
+                     />
+            </label>
+          </p>
+
+          <p>
+            <label>
+              Email
+              <input name="email"
+                     placeholder="Email"
+                     type="email"
+                     value="{{user['email']}}"
+                     />
+            </label>
+          </p>
+          <button type="submit"> Save </button>
+
+        </form>
+</body>
+</html>

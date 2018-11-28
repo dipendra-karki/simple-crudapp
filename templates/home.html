@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/static/style.css" type = "text/css" />
+  <title>Document</title>
+</head>
+<body>
+  <h1> Users </h1>
+
+  <a href="http://localhost:5000/users">Add User</a>
+
+  <hr />
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Full Name</th>
+        <th>email</th>
+        <th>
+          Actions
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for user in result %}
+        <tr>
+          <td> {{user.user_id}} </td>
+          <td> {{user.first_name}} {{user.middle_name or ''}} {{user.last_name}}</td>
+          <td>
+            {{user.email}}
+          </td>
+          <td>
+            <a href="http://localhost:5000/users/{{ user.user_id }}">Edit</a><br>
+
+            <form action="http://localhost:5000/users/remove/{{ user.user_id }}" method="POST">
+              <button> Remove</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
